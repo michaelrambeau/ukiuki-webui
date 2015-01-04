@@ -1,0 +1,10 @@
+.mypage-header
+  .container-fluid
+    h2 {{user.username}}
+    tabs.mypage-tabs
+      tab(state='user.home', user='user') HOME
+      // <tab state="mypage.about">ABOUT</tab>
+      tab(state='user.blog', user='user') BLOG
+      tab(state='user.galleries', user='user') GALLERY
+      // <tab state="mypage.collection">COLLECTION</tab>
+ui-view

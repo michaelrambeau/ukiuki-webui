@@ -1,0 +1,88 @@
+header{
+	//margin-bottom: 20px;
+	background-color: white;
+	font-size: 14px;
+	.logo{
+		margin: 5px 0;
+	}
+	.login-column{
+		text-align: right;
+	}
+	.social-column{
+		text-align: right;
+		vertical-align: middle;
+		width: 110px;
+		@media(min-width: @screen-lg-min){
+			width: 110px;
+		}
+	}
+	.icons{
+		margin-right: 10px;
+		font-size: 32px;
+		.icon{
+			color: #666666;
+			margin-left:15px;
+			&:hover{
+				color: @uki-purple;
+			}
+		}
+	}
+	.motto{
+		padding-left: 20px;
+		color: #919191;
+		font-size: 14px;
+	}
+	.member{
+		color: @uki-purple;
+		//@media (max-width: @screen-md-max) {
+		@media (max-width: 1199px) {
+			display: none;
+		}
+	}
+	.link{
+		color: @text-color;
+		//text-decoration: underline;
+		&:hover{
+			//text-decoration: none;
+		}
+	}
+}
+.uki-navbar{
+	height: 35px;
+	padding: 3px;
+	background-color: #333333;
+}
+
+.filter-bar-toggle{
+	margin: 5px 0;
+	padding: 0;
+	color: #999999;
+	background-color: transparent;
+	font-size: 14px;
+	float: none;
+	&:hover, &:focus{
+		background-color: transparent;
+		color: @uki-light-purple;
+		.icon-bar{
+			background-color: @uki-light-purple;
+		}
+	}
+	.icon-bar{
+		background-color: #999999;
+		display: block;
+		width: 22px;
+		height: 2px;
+		border-radius: 1px;
+	}
+	.icon-bar+.icon-bar {
+		margin-top: 4px;
+	}
+	.bars{
+		float: left;
+		padding-top: 3px;//to align bars with text
+	}
+	.text{
+		padding-left: 30px;//to add space between the bars and the text "Filter by category"
+	}
+}
+

@@ -1,0 +1,13 @@
+ui-view
+.gallery-block
+  .container-fluid.gallery-container
+    .row
+      .col-sm-6.col-md-4.col-lg-3
+        .gallery.gallery-text-block
+          img.img-responsive(src='/images/gallery.gif')
+          .inner
+            p(ng-show='galleries.length == 0') Your gallery is empty.
+            a.btn.dark-button(href='', ui-sref='mypage.galleries.upload', ng-hide='$state.includes("mypage.galleries.upload")')
+              i.fa.fa-plus
+              | CREATE
+      gallery(data='gallery', ng-repeat='gallery in galleries')

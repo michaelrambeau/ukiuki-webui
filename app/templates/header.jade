@@ -1,0 +1,33 @@
+header
+	.container-fluid
+		.table-layout
+			//col #1
+			div
+				a(href, ui-sref="browse")
+					img.logo(src="images/logos/u-art.png",alt="UKiUki Art",width="163",height="66")
+
+			//col #2
+			div.visible-lg
+				span.motto(ng-hide="isLoggedin()") The most unique, creative space for artists
+
+			//col #3
+			div.login-column
+				div(ng-hide="isLoggedin()")
+					span.member Are you a member?
+					span
+						a.link.collapsed(ng-click="Ui.toggle('loginBlock')",href="#login-block", data-toggleX="collapse", data-parentX="header") Login | Register
+				div(ng-show="isLoggedin()")
+					span.member
+						a(ui-sref="mypage.galleries") {{currentUser.username}}
+						| &nbsp;
+					span
+						a.link(href="", ng-click="signout()") SIGN OUT
+
+			//col #4
+			div.social-column.hidden-xs
+				span.icons
+					a.icon(href)
+						i.fa.fa-facebook
+					a.icon(href)
+						i.fa.fa-twitter
+					a.icon(href)

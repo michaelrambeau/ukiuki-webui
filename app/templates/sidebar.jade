@@ -1,0 +1,19 @@
+.sidebar.sidebar-left(ui-track-as-search-param='true')
+	.search-box
+		input(ng-model="search.text",placeHolder="Enter text to search",autocomplete="off")
+		i.fa.fa-search.icon(ng-show="search.text == ''")
+		span.icon.close-icon(ng-click="search.text=''",ng-show="search.text != ''") ×
+	div.ui.menu.fluid.vertical.inverted
+		a.item(ng-click="toggleFilter()", ng-class="{active: search.categories.length == 0}")
+			i.fa.fa-square(ng-show="!search.categories.length == 0")
+			i.fa.fa-check-square(ng-show="search.categories.length == 0")
+			|  All categories
+			span.ui.label(ng-class="{selected: search.categories.length == 0}") {{galleries.length}}
+		a.item(
+			ng-repeat="category in categories",
+			ng-click="toggleCategory(category)",
+			ng-class="{active: category.isSelected, disabled: !category.total > 0}")
+			i.fa.fa-square(ng-show="!category.isSelected")
+			i.fa.fa-check-square(ng-show="category.isSelected")
+			|  {{category.label}}
+			span.ui.label(ng-show="category.total > 0",ng-class="{selected: category.isSelected}") {{category.total}}

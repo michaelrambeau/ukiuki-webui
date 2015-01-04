@@ -1,0 +1,24 @@
+footer
+	div.container
+		div.row
+			div.col.col-md-4
+				h2 About us
+				div.ui.menu.vertical.fluid
+					//a.item(href="/whatisukiuki") What is UKiUKi?
+					a.item(ui-sref="whatisukiuki") What is UKiUKi?
+					a.item.disabled(href="#") Get Professional
+					a.item.disabled(href="#") FAQs
+					a.item.disabled(href="#") Mature Audience conditions
+					a.item.disabled(href="#") Terms of use
+					a.item.disabled(href="#") Report a bug
+					a.item.disabled(href="#") Contact us
+			div.col.col-md-4
+				h2 Latest news
+				div.ui.menu.vertical.fluid
+					a.disabled.item(href="#") Title of news #1
+					a.disabled.item(href="#") Title of news #2
+					a.disabled.item(href="#") Title of news #3
+			div.col.col-md-4
+				h2 Recommended artists
+				a.avatar(href="",ui-sref="user.galleries({username: u.username})", ng-repeat="u in featuredUsers")
+					img(src="images/avatar-default-small.png", width="50",height="50", alt="avatar")

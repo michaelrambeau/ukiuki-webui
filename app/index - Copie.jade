@@ -1,0 +1,46 @@
+doctype html
+html(ng-app="app",ng-controller="MainController")
+
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		title UKiUKi web-ui
+		link(href="css/semantic.css", rel="stylesheet")
+		//link(href="css/ionic.css", rel="stylesheet")
+		//link(href="//code.ionicframework.com/nightly/css/ionic.css", rel="stylesheet")
+		link(href="css/app.css", rel="stylesheet")
+		link(href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css", rel="stylesheet")
+		
+		
+	body
+		//div#spinner.ui.page.active.dimmer
+			//div.ui.large.loader
+
+		include templates/sidebar.jade
+		#main-content.pusher
+			include templates/header.jade			
+
+			include templates/login.jade
+
+			div(ui-view="browse", ng-show="$state.includes('browse')")
+			div(ui-view="whatisukiuki", ng-show="$state.includes('whatisukiuki')")
+			div(ui-view="mypage", ng-show="$state.includes('mypage') || $state.includes('user')")
+			
+			include templates/browse.jade
+
+			include templates/footer.jade
+			
+			
+			
+		
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+		script(src='js/semantic.js')
+		script(src='//code.ionicframework.com/nightly/js/ionic.bundle.js')
+		
+		script(src='js/lib.js')
+		script(src='js/app.js')
+		script(src='js/resource.js')
+		
+		block js
+		

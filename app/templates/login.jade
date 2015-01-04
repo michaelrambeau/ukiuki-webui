@@ -1,0 +1,66 @@
+div#login-block.collapseX.panel-collapseX.dark-form(ui-if="loginBlock == 1")
+	div.inner
+		.topbar.close-link.visible-xs.visible-sm
+			.close-icon
+				.icon ×
+		.container-fluid
+			//div.ui.two.column.middle.aligned.relaxed.stackable.grid
+			div.row
+				//.column
+				.col-md-6
+					form(name="signinForm", novalidate, ng-controller="SigninController", ng-submit="submit()", ng-class="{submitted: submitted}")
+						h2 Login
+						p Existing members please enter your details below to login.
+						div.field
+							input(ng-model="email", type="text", required, ng-minlength="4", placeholder="Username")
+						div.field
+							input(ng-model="password", required, type="password", placeholder="Password")
+						.field.hidden-mobile(style="visibility: hidden;")
+							input(name="xxx")
+						.table-layout.action-bar
+							.div
+								a(href="#") I've forgotten my password.
+							.div.text-right
+								button.btn.dark-button(type="SUBMIT",ng-class="{disabled: status == 'LOADING'}") LOGIN
+						.alert.alert-danger(ng-show="status == 'ERROR'") Login failure. Please check your username and password.
+
+				//.ui.vertical.inverted.divider.hidden-mobile OR
+
+				//.column.aligned
+				.col-md-6
+					form(name="signupForm", novalidate, ng-controller="SignupController", ng-submit="submit()",ng-class="{submitted: submitted}")
+						hr.visible-xs.visible-sm
+						h2 Join us!
+						p Register to become a member.
+						.field
+							input(ng-model="email", type="email", required, placeholder="Your email address", value="mike")
+						.field
+							input(ng-model="password", type="password", required, placeholder="Choose a password", value="mike")
+						.field
+							input(ng-model="username", type="text", required, ng-minlength="4", placeholder="Choose a username", value="xyz")
+						div.action-bar.text-right
+							button.btn.dark-button(type="submit", ng-class="{disabled: status == 'LOADING'}") REGISTER
+						.alert.alert-danger(ng-show="status == 'ERROR'", ng-switch="error")
+							span(ng-switch-when="USERNAME_TAKEN") Username "{{username}}" is already taken
+							span(ng-switch-when="EMAIL_TAKEN") Email "{{email}}" is already taken
+
+
+
+		.leftbar.close-link.hidden-xs.hidden-sm(ng-click="Ui.toggle('loginBlock')")
+			.close-text CLOSE
+			.close-icon
+				.icon ×
+				//i.close.icon
+				//i.fa.fa-close
+
+
+	div.footer
+		.container-fluid
+			button.ui.button.labeled.icon.facebook.mini
+				//i.icon.facebook
+				i.icon.fa.fa-facebook
+				| Facebook
+			button.ui.button.labeled.icon.google.plus.mini
+				//i.icon.google.plus
+				i.icon.fa.fa-google-plus
+				| Google

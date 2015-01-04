@@ -1,0 +1,75 @@
+//#browse-items-block(style="display:none;")
+script#browse-items-block(type="text/ng-template")
+
+	.uki-navbar.hidden-lg
+		.container-fluid
+			button.btn.filter-bar-toggle(ng-show="$state.includes('browse')",ui-toggle="uiSidebarLeft",ng-click22="toggleLeft()")
+				div.bars
+					- for(var i=0; i<3; i++)
+						span.icon-bar
+				div.text.hidden-xs.hidden-sm Browse
+
+
+	.gallery-block: .container-fluid.gallery-container
+
+		//PREV button for mobiles (smaller)
+		//div.visible-xs
+			div(ng-show="pagination.current != 1")
+				button.btn.btn-block.btn-lg.btn-pagination(ng-click="setCurrent(pagination.current - 1)")
+					i.fa.fa-backward
+					|  PREVIOUS p = {{pagination.current}}
+
+		div.gallery-grid
+			div.col-sm-6.col-md-4.col-lg-3.hidden-xs(ng-show="pagination.current == 1")
+				.gallery-text-block
+					img.img-responsive(src="images/gallery.gif")
+					.inner
+						p What is ukiuki?
+						a.btn.dark-button(ui-sref="whatisukiuki") Click here
+
+
+
+			div.col-sm-6.col-md-4.col-lg-3.hidden-xs(ng-show="pagination.current != 1")
+				.gallery-text-block
+					img.img-responsive(src="images/gallery.gif")
+					.inner
+						a.btn.dark-button(href,ng-click="setCurrent(pagination.current - 1)")
+							i.fa.fa-backward
+							|  PREVIOUS
+
+			div(
+				gallery-grid-item=""
+				data="gallery",
+				dir-paginate="gallery in galleries | filter:searchFilter | itemsPerPage:6"
+			)
+
+			div.col-sm-6.col-md-4.col-lg-3.hidden-xs(ng-show="pagination.current != pagination.last && pagination.current != 1")
+				.gallery-text-block
+					img.img-responsive(src="images/gallery.gif")
+					.inner
+						a.btn.dark-button(href,ng-click="setCurrent(pagination.current + 1)")
+							i.fa.fa-forward
+							|  NEXT
+
+			div.col-sm-6.col-md-4.col-lg-3(ng-show="pagination.current == 1")
+				.gallery-text-block
+					img.img-responsive(src="images/gallery.gif")
+					.inner
+						p
+							| UKiUKi allows you to
+							strong customise
+							| your site using your own banners, colours and wallpapers.
+
+		dir-pagination-controls(template-url="html/pagination-controls.html")
+		div.dark.text-center.load-more(ng-show="pagination.current == 1 && pagination.last != 1")
+
+			button.btn.btn-lg.dark-button(ng-click="setCurrent(pagination.current + 1)")
+				i.fa.fa-plus
+				|  Click here to load more
+
+		//NEXT button for mobiles (smaller)
+		div.visible-xs
+			div(ng-show="pagination.current != pagination.last && pagination.current != 1")
+				button.btn.btn-block.btn-lg.btn-pagination(ng-click="setCurrent(pagination.current + 1)")
+					| NEXT
+					i.fa.fa-forward
