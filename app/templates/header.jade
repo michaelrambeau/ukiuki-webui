@@ -13,7 +13,7 @@ header
 			//col #3
 			div.login-column
 				div(ng-hide="isLoggedin()")
-					span.member Are you a member?
+					span.member Are you a member?&nbsp;
 					span
 						a.link.collapsed(ng-click="Ui.toggle('loginBlock')",href="#login-block", data-toggleX="collapse", data-parentX="header") Login | Register
 				div(ng-show="isLoggedin()")
@@ -24,7 +24,7 @@ header
 						a.link(href="", ng-click="signout()") SIGN OUT
 
 			//col #4
-			div.social-column.hidden-xs
+			div.social-column.hidden-xs.hidden-sm
 				span.icons
 					a.icon(href)
 						i.fa.fa-facebook

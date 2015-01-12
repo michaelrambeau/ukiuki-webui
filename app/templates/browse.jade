@@ -20,7 +20,7 @@ script#browse-items-block(type="text/ng-template")
 					|  PREVIOUS p = {{pagination.current}}
 
 		div.gallery-grid
-			div.col-sm-6.col-md-4.col-lg-3.hidden-xs(ng-show="pagination.current == 1")
+			div.col-sm-6.col-md-4.col-lg-3.hidden-xs.hidden-sm(ng-show="pagination.current == 1")
 				.gallery-text-block
 					img.img-responsive(src="images/gallery.gif")
 					.inner
@@ -40,7 +40,7 @@ script#browse-items-block(type="text/ng-template")
 			div(
 				gallery-grid-item=""
 				data="gallery",
-				dir-paginate="gallery in galleries | filter:searchFilter | itemsPerPage:6"
+				dir-paginate="gallery in galleries | filter:searchFilter | itemsPerPage:10"
 			)
 
 			div.col-sm-6.col-md-4.col-lg-3.hidden-xs(ng-show="pagination.current != pagination.last && pagination.current != 1")
@@ -51,14 +51,12 @@ script#browse-items-block(type="text/ng-template")
 							i.fa.fa-forward
 							|  NEXT
 
-			div.col-sm-6.col-md-4.col-lg-3(ng-show="pagination.current == 1")
+			div.col-sm-6.col-md-4.col-lg-3.hidden-xs.hidden-sm(ng-show="pagination.current == 1")
 				.gallery-text-block
 					img.img-responsive(src="images/gallery.gif")
 					.inner
 						p
-							| UKiUKi allows you to
-							strong customise
-							| your site using your own banners, colours and wallpapers.
+							| UKiUKi allows you to <strong>customise</strong> your site using your own banners, colours and wallpapers.
 
 		dir-pagination-controls(template-url="html/pagination-controls.html")
 		div.dark.text-center.load-more(ng-show="pagination.current == 1 && pagination.last != 1")
