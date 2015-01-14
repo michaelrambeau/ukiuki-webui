@@ -41,8 +41,15 @@ app.controller "ContentController", ($scope, $ionicSideMenuDelegate) ->
 	return
 
 
-app.controller "MainController", ($scope, $state, ResourceUser, $http, $rootScope, ResourceGallery) ->
+app.controller "MainController", ($scope, $state, ResourceUser, $http, $rootScope, ResourceGallery, SharedState) ->
 	console.log "Main controller"
+
+	#Put focus on the username field when the login block is displayed
+	$scope.$on 'mobile-angular-ui.state.changed.loginBlock', (e, newVal, oldVal) ->
+		$loginBlock = $("#login-block")
+		if newVal is true then $loginBlock.find("input:first").focus()
+		return
+
 	$scope.currentUser = null
 
 	$scope.getUserData = ->
@@ -88,7 +95,8 @@ app.controller "MainController", ($scope, $state, ResourceUser, $http, $rootScop
 	$scope.$on "login", (ev, data) ->
 		console.info data.user, 'is logged-in.'
 		$scope.currentUser = data.user
-		$loginBlock.collapse "hide"
+		#$loginBlock.collapse "hide"
+		SharedState.toggle 'loginBlock'
 		$state.go 'mypage.galleries'
 
 	ResourceUser.getFeatured (data) ->

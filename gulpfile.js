@@ -102,7 +102,7 @@ gulp.task('images', function () {
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./app/**/*.jade', ['jade']);
+  gulp.watch('./app/**/*.jade', ['jade','jade-partials']);
 	gulp.watch('./app/**/*.coffee', ['coffee']);
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.less, ['less']);
@@ -112,7 +112,6 @@ gulp.task('watch', function() {
 gulp.task('serve:dist', ['default'], function () {
   browserSync({
     notify: false,
-    logPrefix: 'WSK',
     server: 'www',
 		port: 3001
   });

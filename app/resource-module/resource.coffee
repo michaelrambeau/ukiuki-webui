@@ -18,6 +18,9 @@ resource.factory 'ResourceGallery', ($http, UkiUkiAPI) ->
 		getStatsByCategory: (cb) ->
 			$http.get(UkiUkiAPI() + "/api/stats").success (data)	->
 				cb data
+		getUserGalleries: (id, cb) ->
+			$http.get(UkiUkiAPI() + "/api/user-galleries/" + id).success (data)	->
+				cb data
 	api
 
 resource.factory 'ResourceUser', ($http, UkiUkiAPI) ->
@@ -28,4 +31,21 @@ resource.factory 'ResourceUser', ($http, UkiUkiAPI) ->
 		getCurrentUserData: (cb) ->
 			$http.get(UkiUkiAPI() + "/api/user-data").success (data) ->
 				cb data
+		getUserData: (username, cb) ->
+			$http.get(UkiUkiAPI() + '/api/user-data/' + username).success (data) ->
+				cb data
+		login: (formData, cbSuccess, cbError) ->
+			q = $http
+				url: UkiUkiAPI() + "/api/signin"
+				method: "POST"
+				data: formData
+				showLoading: true
+			q.success (data) ->
+				cbSuccess data
+				return
+			q.error (data) ->
+				cbError
+				return
 	api
+
+

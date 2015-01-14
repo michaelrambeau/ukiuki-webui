@@ -38,7 +38,7 @@ script#browse-items-block(type="text/ng-template")
 							|  PREVIOUS
 
 			div(
-				gallery-grid-item=""
+				gallery-grid-item="",
 				data="gallery",
 				dir-paginate="gallery in galleries | filter:searchFilter | itemsPerPage:10"
 			)

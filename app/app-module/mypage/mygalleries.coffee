@@ -1,10 +1,10 @@
-app.controller 'MyGalleriesController', ($scope, $http) ->
+app.controller 'MyGalleriesController', ($scope, $http, ResourceGallery) ->
 
 	console.log "MyGalleries controller"
 
 	$scope.getGalleries = ->
 		console.log "Loading user's galleries..."
-		$http.get("api/user-galleries/" + $scope.currentUser._id).success (data) ->
+		ResourceGallery $scope.currentUser._id, (data) ->
 			$scope.galleries = data.galleries
 			console.info $scope.galleries.length, "User galleries loaded"
 

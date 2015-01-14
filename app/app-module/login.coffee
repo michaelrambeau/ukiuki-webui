@@ -33,7 +33,7 @@ app.controller "SignupController", ($scope, $http, $state) ->
 
 	return
 
-app.controller "SigninController", ($scope, $http) ->
+app.controller "SigninController", ($scope, $http, ResourceUser) ->
 	console.log "Signin controller"
 	$scope.status = ""
 	$scope.submitted = false
@@ -53,22 +53,15 @@ app.controller "SigninController", ($scope, $http) ->
 			email: $scope.email #can be either an email address or a username
 			password: $scope.password
 
-		q = $http
-			url: "/api/signin"
-			method: "POST"
-			data: formData
-			showLoading: true
-		q.success (data) ->
+		cbSuccess = (data) ->
 			$scope.status = "SUCCESS"
 			console.log data
 			#Emit an event to the main scope to trigger navigation
 			$scope.$emit 'login', data
 			return
-		q.error (data) ->
+		cbError = (data) ->
 			$scope.status = "ERROR"
-			return
-
-		return
+		ResourceUser.login formData, cbSuccess, cbError
 
 	$scope.$on "signup-submission", (data) ->
 		$scope.status = ""

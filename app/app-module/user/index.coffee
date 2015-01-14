@@ -1,5 +1,6 @@
-app.controller 'UserController', ($scope, $http, $stateParams) ->
+app.controller 'UserController', ($scope, ResourceUser, $stateParams) ->
 	username = $stateParams.username
-	$http.get('/api/user-data/' + username).success (data) ->
+	ResourceUser.getUserData username, (data) ->
 		$scope.galleries = data.galleries
 		$scope.user = data.user
+	return

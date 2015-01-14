@@ -12,7 +12,7 @@ div#login-block.collapseX.panel-collapseX.dark-form(ui-if="loginBlock == 1")
 						h2 Login
 						p Existing members please enter your details below to login.
 						div.field
-							input(ng-model="email", type="text", required, ng-minlength="4", placeholder="Username")
+							input(focus,ng-model="email", type="text", required, ng-minlength="4", placeholder="Username")
 						div.field
 							input(ng-model="password", required, type="password", placeholder="Password")
 						.field.hidden-mobile(style="visibility: hidden;")
