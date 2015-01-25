@@ -20,8 +20,8 @@ html(ng-app="app",ng-controller="MainController")
 
 		include templates/sidebar.jade
 		#main-content.app(
-			ng-swipe-right='Ui.turnOn("uiSidebarLeft")',
-			ng-swipe-left='Ui.turnOff("uiSidebarLeft")',
+			ng-swipe-left='Ui.turnOn("uiSidebarRight")',
+			ng-swipe-right='Ui.turnOff("uiSidebarRight")',
 			ui-state="loginBlock", ui-default="false"
 			)
 			include templates/header.jade

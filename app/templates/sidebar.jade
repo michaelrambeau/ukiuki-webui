@@ -1,4 +1,4 @@
-.sidebar.sidebar-left(ui-track-as-search-param='true')
+.sidebar.sidebar-right(ui-track-as-search-param='true',ng-swipe-right='Ui.turnOff("uiSidebarRight")')
 	.search-box
 		input(ng-model="search.text",placeHolder="Enter text to search",autocomplete="off")
 		i.fa.fa-search.icon(ng-show="search.text == ''")

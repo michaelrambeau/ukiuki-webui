@@ -109,7 +109,7 @@ gulp.task('watch', function() {
 });
 
 // Build and serve the output from the dist build
-gulp.task('serve:dist', ['default'], function () {
+gulp.task('serve', ['default'], function () {
   browserSync({
     notify: false,
     server: 'www',

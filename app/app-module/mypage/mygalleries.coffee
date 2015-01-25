@@ -3,8 +3,8 @@ app.controller 'MyGalleriesController', ($scope, $http, ResourceGallery) ->
 	console.log "MyGalleries controller"
 
 	$scope.getGalleries = ->
-		console.log "Loading user's galleries..."
-		ResourceGallery $scope.currentUser._id, (data) ->
+		console.log "Loading user's galleries", $scope.currentUser
+		ResourceGallery.getUserGalleries $scope.currentUser._id, (data) ->
 			$scope.galleries = data.galleries
 			console.info $scope.galleries.length, "User galleries loaded"
 

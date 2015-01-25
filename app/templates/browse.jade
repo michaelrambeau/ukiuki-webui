@@ -3,11 +3,15 @@ script#browse-items-block(type="text/ng-template")
 
 	.uki-navbar.hidden-lg
 		.container-fluid
-			button.btn.filter-bar-toggle(ng-show="$state.includes('browse')",ui-toggle="uiSidebarLeft",ng-click22="toggleLeft()")
-				div.bars
+			//button.ui.button.icon.black
+				i.icon.content
+				| Browse
+			.btn.filter-bar-toggle(ng-show="$state.includes('browse')",ui-toggle="uiSidebarRight")
+				span.text Browse
+				i.fa.fa-bars
+				//div.bars
 					- for(var i=0; i<3; i++)
 						span.icon-bar
-				div.text.hidden-xs.hidden-sm Browse
 
 
 	.gallery-block: .container-fluid.gallery-container
