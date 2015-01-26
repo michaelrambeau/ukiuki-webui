@@ -1,19 +1,6 @@
 //#browse-items-block(style="display:none;")
 script#browse-items-block(type="text/ng-template")
 
-	.uki-navbar.hidden-lg
-		.container-fluid
-			//button.ui.button.icon.black
-				i.icon.content
-				| Browse
-			.btn.filter-bar-toggle(ng-show="$state.includes('browse')",ui-toggle="uiSidebarRight")
-				span.text Browse
-				i.fa.fa-bars
-				//div.bars
-					- for(var i=0; i<3; i++)
-						span.icon-bar
-
-
 	.gallery-block: .container-fluid.gallery-container
 
 		//PREV button for mobiles (smaller)
