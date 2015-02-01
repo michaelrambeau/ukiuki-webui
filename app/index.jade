@@ -2,7 +2,7 @@ doctype html
 html(ng-app="app",ng-controller="MainController")
 	head
 		meta(charset="utf-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		title UKiUKi web-ui
 		link(href="css/mobileangularui/mobile-angular-ui-hover.min.css", rel="stylesheet")
@@ -27,12 +27,12 @@ html(ng-app="app",ng-controller="MainController")
 			include templates/header.jade
 			include templates/horizontal-bar.jade
 
-			include templates/login.jade
 
 			.app-body
 				.app-content
 					div.scrollable
 						div.scrollable-content
+							include templates/login.jade
 							div(ui-view="browse", ng-show="$state.includes('browse')")
 							div(ui-view="whatisukiuki", ng-show="$state.includes('whatisukiuki')")
 							div(ui-view="mypage", ng-show="$state.includes('mypage') || $state.includes('user')")

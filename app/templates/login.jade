@@ -1,6 +1,6 @@
 div#login-block.collapseX.panel-collapseX.dark-form(ui-if="loginBlock == 1")
 	div.inner
-		.topbar.close-link.visible-xs.visible-sm
+		.topbar.close-link.visible-xs.visible-sm(ng-click="Ui.toggle('loginBlock')")
 			.close-icon
 				.icon ×
 		.container-fluid
@@ -56,11 +56,11 @@ div#login-block.collapseX.panel-collapseX.dark-form(ui-if="loginBlock == 1")
 
 	div.footer
 		.container-fluid
-			button.ui.button.labeled.icon.facebook.mini
+			button.ui.button.labeled.icon.facebook.small
 				//i.icon.facebook
 				i.icon.fa.fa-facebook
 				| Facebook
-			button.ui.button.labeled.icon.google.plus.mini
+			button.ui.button.labeled.icon.google.plus.small
 				//i.icon.google.plus
 				i.icon.fa.fa-google-plus
 				| Google

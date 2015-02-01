@@ -46,8 +46,9 @@ app.controller "MainController", ($scope, $state, ResourceUser, $http, $rootScop
 
 	#Put focus on the username field when the login block is displayed
 	$scope.$on 'mobile-angular-ui.state.changed.loginBlock', (e, newVal, oldVal) ->
-		$loginBlock = $("#login-block")
-		if newVal is true then $loginBlock.find("input:first").focus()
+		#$loginBlock = $("#login-block")
+		#if newVal is true then $loginBlock.find("input:first").focus()
+		console.info newVal
 		return
 
 	$scope.currentUser = null

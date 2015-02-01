@@ -1,10 +1,10 @@
-.uki-navbar
+.uki-navbar(ng-hide="Ui.get('loginBlock')")
 	.container-fluid
 		//button.ui.button.icon.black
 			i.icon.content
 			| Browse
 		button.btn.filter-bar-toggle(ng-show="$state.includes('browse')",ui-toggle="uiSidebarRight")
-			span.text= 'Browse '
+			span.text= "Browse "
 			i.fa.fa-bars
 			//div.bars
 				- for(var i=0; i<3; i++)
